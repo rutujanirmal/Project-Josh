@@ -17,5 +17,11 @@ class SubmissionsController < ApplicationController
       render status: 400 , json: {error: "Unable to add new submission"}
     end
   end
+
+  private
+
+  def submission_params
+    params.require(:submission).permit(:subject,:batch,:details,:deadline,:teacher_id)
+  end
   
 end
