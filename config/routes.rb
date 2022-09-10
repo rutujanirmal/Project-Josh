@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   post "/create_teacher", to: 'teachers#create'
   get "/get_teachers", to: 'teachers#index'
 
+  post "/create_submission", to: 'submissions#create'
+  get "/get_submissions", to: 'submissions#index'
+
 end
