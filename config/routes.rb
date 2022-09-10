@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   get "/get_submissions", to: 'submissions#index'
 
   get "/mysubmissions/:id", to: 'submissions#mysubmissions'
+  get "/assignedsubmissions/:id", to: 'submissions#assignedsubmissions'
 
 end
