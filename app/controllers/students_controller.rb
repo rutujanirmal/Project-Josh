@@ -18,4 +18,10 @@ class StudentsController < ApplicationController
     end
   end
 
+  private
+
+  def student_params
+    params.require(:student).permit(:id,:student_name,:year,:roll_no,:batch)
+  end
+
 end
