@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   post "/create_submission", to: 'submissions#create'
   get "/get_submissions", to: 'submissions#index'
 
+  get "/mysubmissions/:id", to: 'submissions#mysubmissions'
+
 end
