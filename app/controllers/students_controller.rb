@@ -8,5 +8,14 @@ class StudentsController < ApplicationController
       render status: 200, json: {msg: "No students data present. Use /create_student"}
     end
   end
-  
+
+  def create
+    @student = Student.new(student_params)
+    if @student.save!
+      render json: 'New Student has been Added!'
+    else
+      render status: 400 , json: {error: "Unable to add new student"}
+    end
+  end
+
 end
