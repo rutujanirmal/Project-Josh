@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_10_054947) do
+ActiveRecord::Schema.define(version: 2022_09_10_060424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 2022_09_10_054947) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "submissions", force: :cascade do |t|
+    t.string "submission_id"
+    t.string "subject"
+    t.string "batch"
+    t.string "details"
+    t.datetime "deadline"
+    t.bigint "teacher_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "teachers", force: :cascade do |t|
     t.string "teacher_id"
     t.string "teacher_name"
@@ -33,4 +44,5 @@ ActiveRecord::Schema.define(version: 2022_09_10_054947) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "submissions", "teachers"
 end
