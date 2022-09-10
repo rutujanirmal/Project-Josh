@@ -30,6 +30,18 @@ class SubmissionsController < ApplicationController
     end
   end
 
+  def assignedsubmissions
+    @teacher = Teacher.find(params[:id])
+    @submission = Submission.select("id","subject","batch","details","deadline","teacher_id").where("teacher_id": @teacher.id)
+    if @submission.present?
+      render status: 200, json: @submission
+    elsif @submission.empty?
+      render status: 200, json: {msg: "You have not assigned assignments"}
+    else
+      render status: 400, json: {error: "Error in fetching data"}
+    end
+  end
+
   private
 
   def submission_params
